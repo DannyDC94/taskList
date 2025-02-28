@@ -1,0 +1,51 @@
+.mat-dialog-container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    padding: 24px;
+  }
+  
+  .mat-dialog-title {
+    font-size: 20px;
+    font-weight: 500;
+    color: #333333;
+    margin-bottom: 16px;
+  }
+  
+  .mat-dialog-content {
+    font-size: 16px;
+    color: #555555;
+    margin-bottom: 24px;
+  }
+  
+  .mat-dialog-actions {
+    padding: 8px 0;
+    justify-content: flex-end;
+  }
+  
+  .cancel-button {
+    color: #757575;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 8px 16px;
+    margin-right: 8px;
+  }
+  
+  .cancel-button:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .accept-button {
+    background-color: #ff6600;
+    color: #ffffff;
+    border-radius: 4px;
+    padding: 8px 16px;
+  }
+  
+  .accept-button:hover {
+    background-color: #ff6600;
+  }
+
+  .actions {
+    justify-content: center !important;
+  }

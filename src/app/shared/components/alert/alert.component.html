@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>{{title}}</h2>
+<mat-dialog-content>
+    {{message}}
+</mat-dialog-content>
+<mat-dialog-actions class="actions">
+    @if (!hideCancel) {
+        <button mat-button mat-dialog-close class="cancel-button" (click)="onSend(false)" >Cancelar</button>
+    }
+  <button mat-button mat-dialog-close class="accept-button" (click)="onSend(true)" >Aceptar</button>
+</mat-dialog-actions>

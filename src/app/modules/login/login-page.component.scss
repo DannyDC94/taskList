@@ -1,0 +1,13 @@
+.container {
+  position: relative;
+  height: 80%;
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

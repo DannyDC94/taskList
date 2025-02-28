@@ -1,0 +1,50 @@
+<app-header/>
+<div [ngClass]="showList ? 'task-container-list' : 'task-container'">
+    @if (showList) {
+      <div class="task-lisk">
+          <button (click)="newTask()" mat-raised-button color="primary" type="submit">Nueva Tarea</button>
+          <ul>
+            @for (task of tasks; track task.id) {
+              <li style="display: flex;">
+                <mat-checkbox [(ngModel)]="task.status" (change)="checkTask(task)"></mat-checkbox>
+                <div class="info">
+                  <mat-label class="title">{{ task.title }}</mat-label>
+                  <mat-label class="text">{{ task.description }}</mat-label>
+                  <mat-label class="description">{{transformDate(task.createdAt)}}</mat-label>
+                  @if (task.status) {
+                    <mat-label class="description" style="color: #089b00;">Completada</mat-label>
+                  } @else {
+                    <mat-label class="description">Pendiente</mat-label>
+                  }
+                  
+                </div>
+                <div class="btn-container">
+                  <button mat-button color="info" (click)="showTask(task)">
+                    <mat-icon>edit</mat-icon>
+                  </button>
+                  <button mat-button color="warn" (click)="openDialog(task.id, 'Desea eliminar la tarea?')">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </div>
+              </li>
+            }
+          </ul>
+        </div>
+    } @else {
+      <div class="container-form">
+        <form [formGroup]="taskForm" (ngSubmit)="addOrEditTask()">
+          <mat-form-field>
+            <mat-label>Título</mat-label>
+            <input matInput formControlName="title" maxlength="30" required>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Descripción</mat-label>
+            <textarea matInput formControlName="description" maxlength="100"></textarea>
+          </mat-form-field>
+          <button mat-raised-button color="primary" type="submit">Agregar Tarea</button>
+          <button style="margin-top: 1rem;" mat-raised-button color="secondary" type="button" (click)="cancelTask()">Cancelar</button>
+        </form>
+      </div>
+    }
+</div>
+<app-spinner [loading]="loading()"/>

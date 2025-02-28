@@ -1,0 +1,15 @@
+<app-header/>
+<div class="container">
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <mat-form-field>
+      <mat-label>Correo Electrónico</mat-label>
+      <input matInput formControlName="email" required>
+      @if (loginForm.invalid) {
+        <mat-error>Ingrese un correo válido</mat-error>
+      }
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Iniciar Sesión</button>
+  </form>
+</div>
+<app-spinner [loading]="loading()"/>
+
